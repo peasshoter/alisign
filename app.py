@@ -111,7 +111,7 @@ class SignIn:
                 'https://member.aliyundrive.com/v1/activity/sign_in_list',
                 params={'_rx-s': 'mobile'},
                 headers={'Authorization': f'Bearer {self.access_token}'},
-                json={'isReward': True},
+                json={'isReward': False},
             ).json()
             logging.debug(str(data))
         except requests.RequestException as e:
