@@ -121,27 +121,42 @@ class SignIn:
                 return self.__sign_in(retry=True)
 
             self.error = e
-            return False
+            return
 
         if 'success' not in data:
-            logging.error(f'[{self.phone}] 签到失败, 错误信息: {data}')
+            logging.error(f'[{self.phone}] 获取签到记录失败, 错误信息: {data}')
             self.error = data
             return
 
-        current_day = None
-        for i, day in enumerate(data['result']['signInLogs']):
-            if day['status'] == 'miss':
-                current_day = data['result']['signInLogs'][i - 1]
-                break
+        self.signin_count = data['result']['signInCount']
+
+        if self.signin_count >= len(data['result']['signInLogs']):
+            logging.info(f'[{self.phone}] 已完成本月全部签到.')
+            self.error = '已完成本月全部签到'
+            return
+
+        try:
+            data = requests.post(
+                'https://member.aliyundrive.com/v1/activity/sign_in_reward',
+                params={'_rx-s': 'mobile'},
+                headers={'Authorization': f'Bearer {self.access_token}'},
+                json={'signInDay': self.signin_count + 1},
+            ).json()
+            logging.debug(str(data))
+        except requests.RequestException as e:
+            logging.error(f'[{self.phone}] 签到请求失败: {e}')
+            if not retry:
+                logging.info(f'[{self.phone}] 正在重试...')
+                return self.__sign_in(retry=True)
 
         reward = (
             '无奖励'
-            if not current_day['isReward']
-            else f'获得 {current_day["reward"]["name"]} {current_day["reward"]["description"]}'
+            if not data['result']
+            else f'获得 {data["result"]["name"]} {data["result"]["description"]}'
         )
 
-        self.signin_count = data['result']['signInCount']
         self.signin_reward = reward
+        self.signin_count += 1
 
         logging.info(f'[{self.phone}] 签到成功, 本月累计签到 {self.signin_count} 天.')
         logging.info(f'[{self.phone}] 本次签到{reward}')
@@ -155,13 +170,13 @@ class SignIn:
         user = self.phone or self.hide_refresh_token
         text = (
             f'[{user}] 签到成功, 本月累计签到 {self.signin_count} 天.\n本次签到{self.signin_reward}'
-            if self.signin_count
+            if not self.error
             else f'[{user}] 签到失败\n{json.dumps(str(self.error), indent=2, ensure_ascii=False)}'
         )
 
         text_html = (
             f'<code>{user}</code> 签到成功, 本月累计签到 {self.signin_count} 天.\n本次签到{self.signin_reward}'
-            if self.signin_count
+            if not self.error
             else (
                 f'<code>{user}</code> 签到失败\n'
                 f'<code>{json.dumps(str(self.error), indent=2, ensure_ascii=False)}</code>'
@@ -335,7 +350,6 @@ def main():
     )
 
     results = []
-    rewards = []
 
     for user in users:
         signin = SignIn(config=config, refresh_token=user)
