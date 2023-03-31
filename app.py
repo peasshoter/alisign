@@ -14,7 +14,7 @@ import argparse
 from configobj import ConfigObj
 import requests
 
-from modules import dingtalk, serverchan, pushdeer, telegram, pushplus, smtp, feishu
+import modules
 import github
 
 
@@ -233,13 +233,14 @@ def push(
     ]
 
     for push_type, pusher in {
-        'dingtalk': dingtalk,
-        'serverchan': serverchan,
-        'pushdeer': pushdeer,
-        'telegram': telegram,
-        'pushplus': pushplus,
-        'smtp': smtp,
-        'feishu': feishu,
+        'dingtalk': modules.dingtalk,
+        'serverchan': modules.serverchan,
+        'pushdeer': modules.pushdeer,
+        'telegram': modules.telegram,
+        'pushplus': modules.pushplus,
+        'smtp': modules.smtp,
+        'feishu': modules.feishu,
+        'webhook': modules.webhook,
     }.items():
         if push_type in configured_push_types:
             pusher.push(config, content, content_html, title)

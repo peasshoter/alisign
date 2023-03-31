@@ -82,6 +82,11 @@ inputs:
     required: false
     default: ''
 
+  WEBHOOK_URL:
+    description: 'Webhook url'
+    required: false
+    default: ''
+
 runs:
   using: composite
   steps:
@@ -126,6 +131,7 @@ runs:
         SMTP_SENDER: ${{ inputs.SMTP_SENDER }}
         SMTP_RECEIVER: ${{ inputs.SMTP_RECEIVER }}
         FEISHU_WEBHOOK: ${{ inputs.FEISHU_WEBHOOK }}
+        WEBHOOK_URL: ${{ inputs.WEBHOOK_URL }}
 
 branding:
     icon: 'check-circle'

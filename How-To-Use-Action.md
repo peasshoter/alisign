@@ -66,6 +66,7 @@
               SMTP_SENDER: ${{ secrets.SMTP_SENDER }}
               SMTP_RECEIVER: ${{ secrets.SMTP_RECEIVER }}
               FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+              WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
     ```
 
 2. 按需修改 `corn` 定时运行时间, 推荐在中国时间 22:00 之后.
@@ -102,6 +103,7 @@
 - `SMTP_SENDER` [可选] *SMTP 发件人邮箱*
 - `SMTP_RECEIVER` [可选] *SMTP 收件人邮箱*
 - `FEISHU_WEBHOOK` [可选] *飞书 Webhook 地址*
+- `WEBHOOK_URL` [可选] *自定义 Webhook 地址*
 
 > 这些 `Secrets` 将加密存储在 GitHub, 无法被直接读取, 但可以在 Action 中使用
 

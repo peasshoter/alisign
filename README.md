@@ -88,6 +88,7 @@
 | PushPlus   | PlusPlus     |  ✅  |   ✅    |
 | SMTP       | SMTP 邮件      |  ✅  |   ✅    |
 | FeiShu     | 飞书群组机器人      |  ✅  |   ✅    |
+| WebHook    | 自定义 WebHook  |  ✅  |   ✅    |
 
 **填写推送渠道名称时不区分大小写, 例如 `dingtalk` 和 `DingTalk` 都是有效的**
 
@@ -139,6 +140,17 @@
 - FeiShu
     - `webhook`: 飞书群组机器人的 `webhook` 地址
     - [飞书自定义机器人指南](https://open.feishu.cn/document/ukTMukTMukTM/ucTM5YjL3ETO24yNxkjN)
+
+- WebHook (未测试)
+    - `webhook_url`: 自定义 WebHook 地址
+    - 请求格式
+    ```
+    {
+        "title": "阿里云盘签到",
+        "text": "[110***1130] 签到成功, 本月累计签到 30 天.\n本次签到获得 容量延期 1天容量延期卡",
+        "html": "<code>110***1130</code> 签到成功, 本月累计签到 30 天.\n本次签到获得 容量延期 1天容量延期卡"
+    }
+    ```
 
 - 欢迎 PR 更多推送渠道
 
