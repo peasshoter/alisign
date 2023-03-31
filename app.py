@@ -304,7 +304,7 @@ def get_config_from_env() -> Optional[dict]:
             'webhook_url': environ['WEBHOOK_URL'],
             'cqhttp_endpoint': environ['CQHTTP_ENDPOINT'],
             'cqhttp_user_id': environ['CQHTTP_USER_ID'],
-            'gcqhttp_access_token': environ['CQHTTP_ACCESS_TOKEN'],
+            'cqhttp_access_token': environ['CQHTTP_ACCESS_TOKEN'],
         }
     except KeyError as e:
         logging.error(f'环境变量 {e} 缺失.')
