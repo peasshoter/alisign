@@ -152,6 +152,12 @@
     }
     ```
 
+- go-cqhttp
+    - `endpoint`: 服务器地址
+    - `user_id`: 一般为 QQ 号
+    - `access_token`: 访问令牌
+    - [go-cqhttp 文档](https://docs.go-cqhttp.org/api/)
+
 - 欢迎 PR 更多推送渠道
 
 </details>

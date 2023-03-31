@@ -87,6 +87,21 @@ inputs:
     required: false
     default: ''
 
+  CQHTTP_ENDPOINT:
+    description: 'go-cqhttp endpoint'
+    required: false
+    default: ''
+
+  CQHTTP_USER_ID:
+    description: 'go-cqhttp user id'
+    required: false
+    default: ''
+
+  CQHTTP_ACCESS_TOKEN:
+    description: 'go-cqhttp access token'
+    required: false
+    default: ''
+
 runs:
   using: composite
   steps:
@@ -132,6 +147,9 @@ runs:
         SMTP_RECEIVER: ${{ inputs.SMTP_RECEIVER }}
         FEISHU_WEBHOOK: ${{ inputs.FEISHU_WEBHOOK }}
         WEBHOOK_URL: ${{ inputs.WEBHOOK_URL }}
+        CQHTTP_ENDPOINT: ${{ inputs.CQHTTP_ENDPOINT }}
+        CQHTTP_USER_ID: ${{ inputs.CQHTTP_USER_ID }}
+        CQHTTP_ACCESS_TOKEN: ${{ inputs.CQHTTP_ACCESS_TOKEN }}
 
 branding:
     icon: 'check-circle'

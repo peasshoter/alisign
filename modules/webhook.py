@@ -61,7 +61,7 @@ def push(
     :return:
     """
     if not config['webhook_url']:
-        logging.error('Telegram 推送参数配置不完整')
+        logging.error('Webhook 推送参数配置不完整')
         return False
 
     try:
