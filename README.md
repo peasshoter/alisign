@@ -79,16 +79,17 @@
 >
 > 不支持 `PushDeer` 的原因是好像没人用, 我懒得写, 有需要可以提出 Issue 或者自己写然后 PR (这很简单)
 
-| 渠道名        | 渠道描述         | 本地  | Action |
-|------------|--------------|:---:|:------:|
-| DingTalk   | 钉钉自定义机器人     |  ✅  |   ❌    |
-| ServerChan | Server 酱推送   |  ✅  |   ✅    |
-| PushDeer   | PushDeer     |  ✅  |   ❌    |
-| Telegram   | Telegram 机器人 |  ✅  |   ✅    |
-| PushPlus   | PlusPlus     |  ✅  |   ✅    |
-| SMTP       | SMTP 邮件      |  ✅  |   ✅    |
-| FeiShu     | 飞书群组机器人      |  ✅  |   ✅    |
-| WebHook    | 自定义 WebHook  |  ✅  |   ✅    |
+| 渠道名        | 渠道描述          | 本地  | Action |
+|------------|---------------|:---:|:------:|
+| DingTalk   | 钉钉自定义机器人      |  ✅  |   ❌    |
+| ServerChan | Server 酱推送    |  ✅  |   ✅    |
+| PushDeer   | PushDeer      |  ✅  |   ❌    |
+| Telegram   | Telegram 机器人  |  ✅  |   ✅    |
+| PushPlus   | PlusPlus      |  ✅  |   ✅    |
+| SMTP       | SMTP 邮件       |  ✅  |   ✅    |
+| FeiShu     | 飞书群组机器人       |  ✅  |   ✅    |
+| WebHook    | 自定义 WebHook   |  ✅  |   ✅    |
+| go-cqhttp  | go-cqhttp 机器人 |  ✅  |   ✅    |
 
 **填写推送渠道名称时不区分大小写, 例如 `dingtalk` 和 `DingTalk` 都是有效的**
 
