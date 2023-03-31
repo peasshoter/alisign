@@ -346,7 +346,7 @@ def main():
 
     if not config:
         logging.error('获取配置失败.')
-        return
+        raise ValueError('获取配置失败.')
 
     # 获取所有 refresh token 指向用户
     users = (
