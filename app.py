@@ -140,7 +140,7 @@ class SignIn:
                 'https://member.aliyundrive.com/v1/activity/sign_in_reward',
                 params={'_rx-s': 'mobile'},
                 headers={'Authorization': f'Bearer {self.access_token}'},
-                json={'signInDay': self.signin_count + 1},
+                json={'signInDay': self.signin_count},
             ).json()
             logging.debug(str(data))
         except requests.RequestException as e:
@@ -156,7 +156,6 @@ class SignIn:
         )
 
         self.signin_reward = reward
-        self.signin_count += 1
 
         logging.info(f'[{self.phone}] 签到成功, 本月累计签到 {self.signin_count} 天.')
         logging.info(f'[{self.phone}] 本次签到{reward}')
