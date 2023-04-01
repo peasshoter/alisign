@@ -27,12 +27,14 @@ class SignIn:
             self,
             config: ConfigObj | dict,
             refresh_token: str,
+            do_not_reward: Optional[bool] = False,
     ):
         """
         初始化
 
         :param config: 配置文件, ConfigObj 对象或字典
         :param refresh_token: refresh_token
+        :param do_not_reward: 是否不领取奖励
         """
         self.config = config
         self.refresh_token = refresh_token
@@ -43,6 +45,7 @@ class SignIn:
         self.signin_count = 0
         self.signin_reward = None
         self.error = None
+        self.do_not_reward = do_not_reward
 
     def __hide_refresh_token(self) -> str:
         """
@@ -133,6 +136,11 @@ class SignIn:
         if self.signin_count >= len(data['result']['signInLogs']):
             logging.info(f'[{self.phone}] 已完成本月全部签到.')
             self.error = '已完成本月全部签到'
+            return
+
+        if self.do_not_reward:
+            logging.info(f'[{self.phone}] 已设置不领取奖励.')
+            self.signin_reward = '跳过领取奖励'
             return
 
         try:
@@ -320,6 +328,7 @@ def get_args() -> argparse.Namespace:
 
     parser.add_argument('-a', '--action', help='由 GitHub Actions 调用', action='store_true', default=False)
     parser.add_argument('-d', '--debug', help='调试模式, 会输出更多调试数据', action='store_true', default=False)
+    parser.add_argument('--do-not-reward', help='仅签到, 不进行奖励兑换', action='store_true', default=False)
 
     return parser.parse_args()
 
@@ -357,7 +366,12 @@ def main():
     results = []
 
     for user in users:
-        signin = SignIn(config=config, refresh_token=user)
+        signin = SignIn(
+            config=config,
+            refresh_token=user,
+            do_not_reward=args.do_not_reward,
+        )
+
         results.append(signin.run())
 
     # 合并推送
