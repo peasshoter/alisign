@@ -11,7 +11,8 @@
 此文为小白不友好教程, 请尽量利用搜索引擎解决问题.  
 **如有提出 Issues 的必要, 请尽量提供报错截图, 错误情况, 以及尝试过的解决方案.**
 
-> [非官方小白教程](https://www.52pojie.cn/thread-1757911-1-1.html) by [@陈宇轩](https://www.52pojie.cn/home.php?mod=space&uid=440249) on 52pojie.
+> [非官方小白教程](https://www.52pojie.cn/thread-1757911-1-1.html)
+> by [@陈宇轩](https://www.52pojie.cn/home.php?mod=space&uid=440249) on 52pojie.
 
 提问前推荐阅读: [提问的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)
 
@@ -28,7 +29,8 @@
 ## 关于自动更新
 
 自动更新指的是自动使用主仓库最新发行版本代码运行, 但无法修改 action 配置文件.
-涉及更新传入参数等配置的更新, 仍需手动操作 (如 [v1.3.4](https://github.com/ImYrS/aliyun-auto-signin/releases/tag/v1.3.4) 更新).
+涉及更新传入参数等配置的更新, 仍需手动操作 (如 [v1.3.4](https://github.com/ImYrS/aliyun-auto-signin/releases/tag/v1.3.4)
+更新).
 
 如未及时更新 action 配置, 不会影响已存在的功能, 但可能会导致新功能无法使用.
 
@@ -80,6 +82,7 @@
    详见项目首页的[推送渠道](https://github.com/ImYrS/aliyun-auto-signin/blob/main/README.md#%E6%8E%A8%E9%80%81%E6%B8%A0%E9%81%93)
 
 4. 修改上方配置中的 `DO_NOT_REWARD` 参数, 以启用 **仅签到, 不领取奖励** 功能.
+   > 开启此功能后, 每次签到时将不会领取奖励, 并在每个月最后一天签到时尝试领取本月所有奖励, 避免浪费.
 
 ## 配置 GitHub Secrets
 
