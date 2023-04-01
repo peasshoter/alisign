@@ -53,6 +53,7 @@
               REFRESH_TOKENS: ${{ secrets.REFRESH_TOKENS }}
               GP_TOKEN: ${{ secrets.GP_TOKEN}}
               PUSH_TYPES: ''
+              DO_NOT_REWARD: 'false'
               SERVERCHAN_SEND_KEY: ${{ secrets.SERVERCHAN_SEND_KEY }}
               TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
               TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -77,6 +78,8 @@
 3. 修改上方配置中的 `PUSH_TYPES` 参数, 以启用推送功能. 使用 `telegram` 和 `smtp` 渠道在 Action 中可能获得更好体验.
    > 由于配置复杂或渠道 IP 限制等原因, 部分渠道不支持在 Github Action 中使用,
    详见项目首页的[推送渠道](https://github.com/ImYrS/aliyun-auto-signin/blob/main/README.md#%E6%8E%A8%E9%80%81%E6%B8%A0%E9%81%93)
+
+4. 修改上方配置中的 `DO_NOT_REWARD` 参数, 以启用 **仅签到, 不领取奖励** 功能.
 
 ## 配置 GitHub Secrets
 

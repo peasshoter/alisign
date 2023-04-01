@@ -133,14 +133,13 @@ class SignIn:
 
         self.signin_count = data['result']['signInCount']
 
-        if self.signin_count >= len(data['result']['signInLogs']):
-            logging.info(f'[{self.phone}] 已完成本月全部签到.')
-            self.error = '已完成本月全部签到'
-            return
-
         if self.do_not_reward:
-            logging.info(f'[{self.phone}] 已设置不领取奖励.')
-            self.signin_reward = '跳过领取奖励'
+            if self.signin_count < len(data['result']['signInLogs']):
+                logging.info(f'[{self.phone}] 已设置不领取奖励.')
+                self.signin_reward = '跳过领取奖励'
+                return
+
+            self.__reward_all(len(data['result']['signInLogs']))
             return
 
         try:
@@ -167,6 +166,30 @@ class SignIn:
 
         logging.info(f'[{self.phone}] 签到成功, 本月累计签到 {self.signin_count} 天.')
         logging.info(f'[{self.phone}] 本次签到{reward}')
+
+    def __reward_all(self, max_day: int) -> NoReturn:
+        """
+        兑换当月全部奖励
+
+        :param max_day: 最大天数
+        :return:
+        """
+        url = 'https://member.aliyundrive.com/v1/activity/sign_in_reward'
+        params = {'_rx-s': 'mobile'}
+        headers = {'Authorization': f'Bearer {self.access_token}'}
+
+        for day in range(1, max_day + 1):
+            try:
+                requests.post(
+                    url,
+                    params=params,
+                    headers=headers,
+                    json={'signInDay': day},
+                )
+            except requests.RequestException as e:
+                logging.error(f'[{self.phone}] 签到请求失败: {e}')
+
+        self.signin_reward = '已自动领取本月全部奖励'
 
     def __generate_result(self) -> dict:
         """
@@ -364,12 +387,18 @@ def main():
     )
 
     results = []
+    do_not_reward = (
+        environ['DO_NOT_REWARD'] == 'true'
+        if args.action
+        else
+        args.do_not_reward
+    )
 
     for user in users:
         signin = SignIn(
             config=config,
             refresh_token=user,
-            do_not_reward=args.do_not_reward,
+            do_not_reward=do_not_reward,
         )
 
         results.append(signin.run())

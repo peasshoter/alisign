@@ -17,6 +17,11 @@ inputs:
     required: false
     default: ''
 
+  DO_NOT_REWARD:
+    description: 'Do not reward'
+    required: false
+    default: 'false'
+
   SERVERCHAN_SEND_KEY:
     description: 'ServerChan send key'
     required: false
@@ -133,6 +138,7 @@ runs:
         GP_TOKEN: ${{ inputs.GP_TOKEN }}
         GITHUB_REPOS: ${{ github.repository }}
         PUSH_TYPES: ${{ inputs.PUSH_TYPES }}
+        DO_NOT_REWARD: ${{ inputs.DO_NOT_REWARD }}
         SERVERCHAN_SEND_KEY: ${{ inputs.SERVERCHAN_SEND_KEY }}
         TELEGRAM_BOT_TOKEN: ${{ inputs.TELEGRAM_BOT_TOKEN }}
         TELEGRAM_CHAT_ID: ${{ inputs.TELEGRAM_CHAT_ID }}
