@@ -174,3 +174,7 @@
 <a href="https://github.com/ImYrS/aliyun-auto-signin/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=ImYrS/aliyun-auto-signin"  alt=""/>
 </a>
+
+## Star
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ImYrS/aliyun-auto-signin&type=Date)](https://star-history.com/#ImYrS/aliyun-auto-signin&Date)
