@@ -179,6 +179,6 @@
 
 ### Special Sponsors
 
-| <img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg" width="80" height="80" alt=""/> | [Jetbrains](https://https://www.jetbrains.com/): Essential tools for software developers and teams |
-|:---------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------:|
+| <img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg" width="80" height="80" alt=""/> | [Jetbrains](https://www.jetbrains.com/): Essential tools for software developers and teams |
+|:---------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------:|
 
