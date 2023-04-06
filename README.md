@@ -165,16 +165,20 @@
 
 ## 其他
 
+### 此项目
+
 - 欢迎在 [Issues](https://github.com/ImYrS/aliyun-auto-signin/issues) 中反馈 Bug
 - 你的 Star :star: 是我维护的动力
 - PRs are welcome
 
-## 贡献者
+### 贡献者
 
 <a href="https://github.com/ImYrS/aliyun-auto-signin/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=ImYrS/aliyun-auto-signin"  alt=""/>
 </a>
 
-## Star
+### Special Sponsors
 
-[![Star History Chart](https://api.star-history.com/svg?repos=ImYrS/aliyun-auto-signin&type=Date)](https://star-history.com/#ImYrS/aliyun-auto-signin&Date)
+| <img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg" width="80" height="80" alt=""/> | [Jetbrains](https://https://www.jetbrains.com/): Essential tools for software developers and teams |
+|:---------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------:|
+
