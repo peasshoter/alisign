@@ -10,6 +10,7 @@ from os import environ
 from typing import NoReturn, Optional
 import json
 import argparse
+import time
 
 from configobj import ConfigObj
 import requests
@@ -238,6 +239,7 @@ class SignIn:
         result = self.__get_access_token()
 
         if result:
+            time.sleep(3)
             self.__sign_in()
 
         return self.__generate_result()
