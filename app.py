@@ -126,8 +126,14 @@ class SignIn:
             self.error = e
             return
 
+        if data['code'] == 'AccessTokenInvalid':
+            logging.error(f'[{self.phone}] access token 无效, 正在重新获取...')
+            if not retry:
+                logging.info(f'[{self.phone}] 签到失败, 正在重试...')
+                return self.__sign_in(retry=True)
+
         if 'success' not in data:
-            logging.error(f'[{self.phone}] 获取签到记录失败, 错误信息: {data}')
+            logging.error(f'[{self.phone}] 签到失败, 错误信息: {data}')
             self.error = data
             return
 
@@ -151,7 +157,7 @@ class SignIn:
             ).json()
             logging.debug(str(data))
         except requests.RequestException as e:
-            logging.error(f'[{self.phone}] 签到请求失败: {e}')
+            logging.error(f'[{self.phone}] 兑换请求失败: {e}')
             if not retry:
                 logging.info(f'[{self.phone}] 正在重试...')
                 return self.__sign_in(retry=True)
