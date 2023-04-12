@@ -14,6 +14,7 @@
 > [非官方小白教程](https://www.52pojie.cn/thread-1757911-1-1.html)
 > by [@陈宇轩](https://www.52pojie.cn/home.php?mod=space&uid=440249) on 52pojie.
 
+提出 Issues 前必看: [Issues 须知](https://github.com/ImYrS/aliyun-auto-signin/issues/29)  
 提问前推荐阅读: [提问的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)
 
 ## 准备工作
