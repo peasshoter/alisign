@@ -170,6 +170,7 @@
 - 欢迎在 [Issues](https://github.com/ImYrS/aliyun-auto-signin/issues) 中反馈 Bug
 - 你的 Star :star: 是我维护的动力
 - PRs are welcome
+- Telegram 交流群: [@aliyun_auto_signin](https://t.me/aliyun_auto_signin)
 
 ### 贡献者
 

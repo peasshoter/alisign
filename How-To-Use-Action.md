@@ -147,4 +147,5 @@
 ## 其他
 
 这是本人的第一次 Action 尝试, 如有不足之处, 请多多指教.  
-异常请反馈至本项目的 [Issues](https://github.com/ImYrS/aliyun-auto-signin/issues).
+异常请反馈至本项目的 [Issues](https://github.com/ImYrS/aliyun-auto-signin/issues).  
+Telegram 交流群: [@aliyun_auto_signin](https://t.me/aliyun_auto_signin)
