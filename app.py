@@ -425,6 +425,7 @@ def main():
     else:
         try:
             github.update_secret('REFRESH_TOKENS', ','.join(new_users))
+            logging.info('refresh tokens 更新成功.')
         except Exception as e:
             err = f'Action 更新 Github Secrets 失败: {e}'
             logging.error(err)
