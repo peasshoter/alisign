@@ -165,6 +165,8 @@
 
 ## 其他
 
+![Alt](https://repobeats.axiom.co/api/embed/a9d4ee5910ae88c87224e7eda8c28bc5d5e8a32e.svg "Repobeats analytics image")
+
 ### 此项目
 
 - 欢迎在 [Issues](https://github.com/ImYrS/aliyun-auto-signin/issues) 中反馈 Bug
