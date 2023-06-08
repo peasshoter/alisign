@@ -67,9 +67,34 @@
 
 ## Docker 运行
 
-**非官方** docker 镜像及讨论[点此查看](https://github.com/ImYrS/aliyun-auto-signin/issues/21)
+### 官方 Docker
 
-> 本项目不提供 docker 支持及错误解答
+1. Clone 本项目到本地或下载 Release 版本
+2. 将 `example.config.ini` 配置文件改名并保存为 `/root/config.ini`
+3. 按照本地运行的方法修改配置文件
+4. 进入项目根目录, 构建镜像
+    ```bash
+    docker build -t aliyun-auto-signin .
+    ```
+5. 运行容器
+    ```bash
+    docker run --name aliyun-auto-signin -v /root/config.ini:/apps/aliyun-auto-signin/config.ini -d aliyun-auto-signin
+    ```
+6. 配置 crontab 定时任务
+    ```bash
+    crontab -e
+    ```
+   添加一行, 每日 20:30 运行
+    ```bash
+    30 20 * * * docker start aliyun-auto-signin
+    ```
+   保存并退出
+
+### 非官方 Docker
+
+非官方 docker 镜像的讨论以及使用方法[在此查看](https://github.com/ImYrS/aliyun-auto-signin/issues/21)
+
+> 项目不对非官方的 Docker 镜像或其运行方法负责, 也不为其提供支持.
 
 ## 推送渠道
 
@@ -79,17 +104,17 @@
 >
 > 不支持 `PushDeer` 的原因是好像没人用, 我懒得写, 有需要可以提出 Issue 或者自己写然后 PR (这很简单)
 
-| 渠道名        | 渠道描述          | 本地  | Action |
-|------------|---------------|:---:|:------:|
-| DingTalk   | 钉钉自定义机器人      |  ✅  |   ❌    |
-| ServerChan | Server 酱推送    |  ✅  |   ✅    |
-| PushDeer   | PushDeer      |  ✅  |   ❌    |
-| Telegram   | Telegram 机器人  |  ✅  |   ✅    |
-| PushPlus   | PlusPlus      |  ✅  |   ✅    |
-| SMTP       | SMTP 邮件       |  ✅  |   ✅    |
-| FeiShu     | 飞书群组机器人       |  ✅  |   ✅    |
-| WebHook    | 自定义 WebHook   |  ✅  |   ✅    |
-| go-cqhttp  | go-cqhttp 机器人 |  ✅  |   ✅    |
+| 渠道名        | 渠道描述          | 本地 | Action |
+|------------|---------------|:--:|:------:|
+| DingTalk   | 钉钉自定义机器人      | ✅  |   ❌    |
+| ServerChan | Server 酱推送    | ✅  |   ✅    |
+| PushDeer   | PushDeer      | ✅  |   ❌    |
+| Telegram   | Telegram 机器人  | ✅  |   ✅    |
+| PushPlus   | PlusPlus      | ✅  |   ✅    |
+| SMTP       | SMTP 邮件       | ✅  |   ✅    |
+| FeiShu     | 飞书群组机器人       | ✅  |   ✅    |
+| WebHook    | 自定义 WebHook   | ✅  |   ✅    |
+| go-cqhttp  | go-cqhttp 机器人 | ✅  |   ✅    |
 
 **填写推送渠道名称时不区分大小写, 例如 `dingtalk` 和 `DingTalk` 都是有效的**
 
