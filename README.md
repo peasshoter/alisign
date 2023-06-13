@@ -56,6 +56,42 @@
 7. 如果遇到配置错误或环境问题, 并且你并不擅长于这个领域, 那推荐的解决方案是切换为 Action 方案而不是提出 Issue 等待解答
    (通常会花费更多的时间).
 
+<details>
+<summary>Linux 使用 pyenv 的进阶选项</summary>
+
+> 此内容不适用于大部分用户, 如果你不知道这是做什么的, 请不要使用
+
+### 使用 pyenv 管理 Python 版本
+
+克隆项目后在项目目录中执行 pyenv 安装脚本
+
+```bash
+# auto install pyenv
+curl -s https://raw.githubusercontent.com/ImYrS/aliyun-auto-signin/main/install-pyenv.sh | bash
+source ~/.bashrc
+
+# install python version
+pyenv install 3.10.12
+
+# install dependency
+pyenv local 3.10.12
+pip3 install -r requirements.txt
+
+# copy and edit config.ini  
+### cp -a example.config.ini config.ini
+
+# source 
+source ~/.bashrc
+
+# run
+pyenvs 3.10.12 app.py
+
+### crontab
+# 0 8 * * * pyenvs 3.10.12 /root/aliyun-auto-signin/app.py 
+```
+
+</details>
+
 ### 低版本 Python
 
 ~~注意: main 分支仅支持 Python 3.10 及以上版本, 低于 3.10 的版本请移步
